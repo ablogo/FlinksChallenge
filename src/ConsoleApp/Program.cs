@@ -17,7 +17,7 @@ namespace ConsoleApp
         {
             try
             {
-                Console.WriteLine("Hello World!");
+                Console.WriteLine("Hello, start challenge!");
                 GetTokens().Wait();
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace ConsoleApp
                 }
                 while (loginResponse.Count < 50);
 
-                Console.WriteLine("ChallengeId: " + challengeId);
+                Console.WriteLine("Challenge done maybe." + Environment.NewLine + "ChallengeId: " + challengeId);
                 loginResponse.ForEach(x => Console.WriteLine(x.Token));
 
             }

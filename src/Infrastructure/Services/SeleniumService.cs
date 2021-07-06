@@ -86,6 +86,7 @@ namespace Infrastructure.Services
             }
             finally
             {
+                driver?.Close();
                 driver?.Dispose();
             }
 
