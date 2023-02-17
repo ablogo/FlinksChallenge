@@ -1,26 +1,18 @@
-#/*********************************************************************
-# Copyright (c) Intel Corporation 2020
-# SPDX-License-Identifier: Apache-2.0
-#**********************************************************************/
-# Default values for installServersChart.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 images:
-  mps: "046171614672.dkr.ecr.us-west-2.amazonaws.com/c2c-ecr:mps-v2.7.0"
-  rps: "046171614672.dkr.ecr.us-west-2.amazonaws.com/c2c-ecr:rps-v2.7.0"
-  webui: "intel/oact-webui:v2.5.1"
-  mpsrouter: "046171614672.dkr.ecr.us-west-2.amazonaws.com/c2c-ecr:mpsrouter-v2.1.1"
+  mps: 046171614672.dkr.ecr.us-west-2.amazonaws.com/c2c-ecr:mps-v2.7.0
+  rps: aws_ecr/c2c-rps:2.7
+  webui: intel/oact-webui:v2.5.1
+  mpsrouter: 046171614672.dkr.ecr.us-west-2.amazonaws.com/c2c-ecr:mpsrouter-v2.1.1
 mps:
-  commonName: 
+  commonName: null
   replicaCount: 1
-  logLevel: "silly"
+  logLevel: silly
   jwtExpiration: 1440
 ui:
   replicaCount: 1
 rps:
   replicaCount: 1
-  logLevel: "silly"
+  logLevel: silly
 vault:
   injector:
     annotations:
@@ -32,15 +24,15 @@ vault:
     annotations:
       kuma.io/sidecar-injection: disabled
     enabled: true
-    serviceType: "LoadBalancer"
+    serviceType: LoadBalancer
 kong:
   ingressController:
     admissionWebhook:
       enabled: false
     ingressClass: kong
   podAnnotations:
-      kuma.io/sidecar-injection: enabled
-      kuma.io/gateway: enabled
+    kuma.io/sidecar-injection: enabled
+    kuma.io/gateway: enabled
   env:
     UPSTREAM_KEEPALIVE_POOL_SIZE: 0
   proxy:
